@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Kotlin Web</title>
+</head>
+<script src="/dist/plugins/jQuery/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		
+	});
+	
+	$(function(){
+		$("#loginBtn").click(function (e) {
+			const data = {
+                    "id": 'jini',
+                    "password": 'world'
+                };
+                
+			$.ajax({
+	                url: "/login",
+	                type: "POST",
+	                contentType: "application/json;charset=UTF-8",
+	                data: JSON.stringify(data),
+	                success : function(data){
+						window.location.replace("/main");
+					},
+					error : function(data) {
+						console.log("error")
+					}
+			});
+		})
+		
+	})
+</script>
+<body>
+	welcome to jiniworld
+	<button id="loginBtn">Log in</button>
+</body>
+</html>
